@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<math.h>
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    long long a[60000]={};
+    char re;
+    long long rre;
+    long long rrre=0;
+    getchar();
+    for(int i=0;i<n;i++){
+            rrre=0;
+        for(int j=0;j<10;j++){
+            scanf("%c",&re);
+            if(re=='0')
+                rre=(long long)0;
+            if(re=='1')
+                rre=(long long)1;
+            if(re=='x')
+                rre=(long long)2;
+
+            rrre=rrre+rre*(long long)pow(3,(9-j));
+            //printf("%lld\n",rrre);
+        }
+            a[rrre]+=1;
+            getchar();
+    }
+    int count=0;
+    int flag=0;
+    for(int i=0;i<(int)pow(3,10);i++){
+        if(a[i]!=0){
+            count++;
+        }
+    }
+    //printf("%lld\n%lld\n%lld\n%lld\n%lld\n%lld\n",a[0],a[1],a[2],a[3],a[4],a[5]);
+    printf("%d\n",count);
+
+return 0;
+}
